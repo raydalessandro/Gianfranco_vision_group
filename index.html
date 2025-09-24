@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianfranco Vision Guide - La tua guida completa per la vista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a472a;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #1a472a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a472a;
+        }
+
+        .service-card p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: #20c997;
+        }
+
+        /* Promo Section */
+        .promo {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .promo-content {
+            text-align: center;
+        }
+
+        .promo h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .promo p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #28a745;
+        }
+
+        .footer-section p, .footer-section li {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 1rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">Gianfranco Vision Guide</div>
+                    <div class="tagline">La tua guida completa per il benessere della vista</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html">Consigli Acquisti</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Benvenuto nel mondo della vista perfetta</h1>
+                <p>Scopri guide, consigli e tutto quello che devi sapere per prenderti cura dei tuoi occhi. Un servizio dedicato ai nostri clienti per accompagnarti in ogni scelta.</p>
+                <a href="guide-occhiali.html" class="cta-button">Esplora le Guide</a>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2>I Nostri Servizi</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">👓</div>
+                        <h3>Guide per Occhiali</h3>
+                        <p>Tutto quello che devi sapere su come scegliere, usare e mantenere i tuoi occhiali. Dalla scelta della montatura giusta alla cura quotidiana.</p>
+                        <a href="guide-occhiali.html" class="service-link">Scopri di più →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">👁️</div>
+                        <h3>Lenti a Contatto</h3>
+                        <p>Guide complete per l'uso delle lenti a contatto: inserimento, rimozione, igiene e manutenzione. Tutto per un utilizzo sicuro e confortevole.</p>
+                        <a href="guide-lenti-contatto.html" class="service-link">Scopri di più →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">⭐</div>
+                        <h3>Club &Te</h3>
+                        <p>Scopri i vantaggi esclusivi del Club &Te di Salmoiraghi & Viganò: abbonamenti convenienti per adulti, bambini e lenti a contatto.</p>
+                        <a href="club-te.html" class="service-link">Scopri di più →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>Consigli Acquisti</h3>
+                        <p>Le nostre raccomandazioni sui migliori prodotti per ogni esigenza. Recensioni, confronti e suggerimenti per trovare la soluzione ideale.</p>
+                        <a href="consigli-acquisti.html" class="service-link">Scopri di più →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="promo">
+            <div class="container">
+                <div class="promo-content">
+                    <h2>Hai bisogno di assistenza personalizzata?</h2>
+                    <p>Il nostro team di esperti è sempre disponibile nel negozio per consigli personalizzati e controlli della vista professionali.</p>
+                    <a href="club-te.html" class="cta-button">Scopri Club &Te</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gianfranco Vision Guide</h3>
+                    <p>La tua risorsa digitale per il benessere della vista. Guide, consigli e assistenza dedicata ai clienti del nostro negozio di ottica.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Servizi</h3>
+                    <ul>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html">Consigli Acquisti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Supporto</h3>
+                    <p>Per assistenza personalizzata, visita il nostro negozio o contattaci per prenotare un appuntamento.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gianfranco Vision Guide - Uno strumento di servizio per i nostri clienti</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
