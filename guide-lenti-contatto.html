@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide per Lenti a Contatto - Gianfranco Vision Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a472a;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            padding: 4rem 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .guide-card-header {
+            background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .guide-card-header h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-card-header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-card-content {
+            padding: 2rem;
+        }
+
+        .guide-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .guide-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .guide-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #17a2b8;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .guide-steps h3 {
+            color: #1a472a;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .guide-steps p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Warning Box */
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #f39c12;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .warning h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning p {
+            color: #856404;
+        }
+
+        /* Tips Section */
+        .tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .tips h3 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips ul {
+            list-style: none;
+        }
+
+        .tips li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tips li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #17a2b8;
+            font-weight: bold;
+        }
+
+        /* Troubleshooting */
+        .troubleshooting {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .troubleshooting h2 {
+            color: #1a472a;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .problem h4 {
+            color: #dc3545;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution h4 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #28a745;
+        }
+
+        .footer-section p, .footer-section li {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 1rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .problem-solution {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">Gianfranco Vision Guide</div>
+                    <div class="tagline">La tua guida completa per il benessere della vista</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html" class="active">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html">Consigli Acquisti</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Guide Complete per le Lenti a Contatto</h1>
+            <p>Tutto quello che devi sapere per un utilizzo sicuro, confortevole e igienico delle lenti a contatto</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="container">
+            <div class="warning">
+                <h3>⚠️ Importante - Primo Utilizzo</h3>
+                <p>Le lenti a contatto sono dispositivi medici. Prima del primo utilizzo è sempre necessaria una visita specialistica per valutare l'idoneità e ricevere istruzioni personalizzate dal nostro staff qualificato.</p>
+            </div>
+
+            <div class="guide-grid">
+                <!-- Inserimento delle Lenti -->
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <div class="icon">👁️</div>
+                        <h2>Inserimento delle Lenti</h2>
+                    </div>
+                    <div class="guide-card-content">
+                        <ol class="guide-steps">
+                            <li>
+                                <h3>Preparazione</h3>
+                                <p>Lava accuratamente le mani con sapone antibatterico e asciugale con un asciugamano pulito senza pelucchi.</p>
+                            </li>
+                            <li>
+                                <h3>Controllo della lente</h3>
+                                <p>Posiziona la lente sulla punta del dito indice pulito. Verifica che sia nella forma corretta (bordi rivolti verso l'alto) e non danneggiata.</p>
+                            </li>
+                            <li>
+                                <h3>Posizionamento</h3>
+                                <p>Con l'altra mano tieni aperte le palpebre. Guarda verso l'alto e posiziona delicatamente la lente sulla parte bianca dell'occhio.</p>
+                            </li>
+                            <li>
+                                <h3>Centratura</h3>
+                                <p>Rilascia lentamente le palpebre e chiudi gli occhi per alcuni secondi. La lente si centrerà automaticamente sulla cornea.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Rimozione delle Lenti -->
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <div class="icon">🤏</div>
+                        <h2>Rimozione delle Lenti</h2>
+                    </div>
+                    <div class="guide-card-content">
+                        <ol class="guide-steps">
+                            <li>
+                                <h3>Preparazione</h3>
+                                <p>Come per l'inserimento, lava accuratamente le mani e asciugale con un asciugamano pulito.</p>
+                            </li>
+                            <li>
+                                <h3>Localizzazione</h3>
+                                <p>Guarda in alto e con il dito medio abbassa delicatamente la palpebra inferiore. La lente dovrebbe essere visibile.</p>
+                            </li>
+                            <li>
+                                <h3>Rimozione</h3>
+                                <p>Con il pollice e l'indice afferra delicatamente i bordi della lente e rimuovila con un movimento di "pizzico" molto delicato.</p>
+                            </li>
+                            <li>
+                                <h3>Conservazione o smaltimento</h3>
+                                <p>Per lenti riutilizzabili, immergile immediatamente nella soluzione detergente. Le lenti giornaliere vanno smaltite.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Igiene e Pulizia -->
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <div class="icon">🧴</div>
+                        <h2>Igiene e Pulizia</h2>
+                    </div>
+                    <div class="guide-card-content">
+                        <ol class="guide-steps">
+                            <li>
+                                <h3>Pulizia quotidiana</h3>
+                                <p>Dopo ogni rimozione, pulisci la lente con alcune gocce di soluzione detergente, strofinando delicatamente per 20 secondi.</p>
+                            </li>
+                            <li>
+                                <h3>Risciacquo</h3>
+                                <p>Risciacqua abbondantemente con soluzione salina sterile o multifunzione. Mai usare acqua del rubinetto!</p>
+                            </li>
+                            <li>
+                                <h3>Conservazione</h3>
+                                <p>Immergi le lenti in soluzione fresca all'interno del portalenti pulito. Sostituisci sempre la soluzione, mai riutilizzare quella vecchia.</p>
+                            </li>
+                            <li>
+                                <h3>Portalenti</h3>
+                                <p>Pulisci il portalenti quotidianamente con la soluzione e lascialo asciugare all'aria. Sostituiscilo ogni 3 mesi.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Tipologie di Lenti -->
+                <div class="guide-card">
+                    <div class="guide-card-header">
+                        <div class="icon">📋</div>
+                        <h2>Tipologie di Lenti</h2>
+                    </div>
+                    <div class="guide-card-content">
+                        <ol class="guide-steps">
+                            <li>
+                                <h3>Lenti Giornaliere</h3>
+                                <p>Usa e getta quotidiano. Massima igiene e praticità. Ideali per uso occasionale o per chi ha occhi sensibili.</p>
+                            </li>
+                            <li>
+                                <h3>Lenti Settimanali</h3>
+                                <p>Durata 1-2 settimane. Richiedono pulizia quotidiana e conservazione notturna in soluzione.</p>
+                            </li>
+                            <li>
+                                <h3>Lenti Mensili</h3>
+                                <p>Durata 30 giorni. Più economiche per uso frequente. Richiedono cura scrupolosa per mantenere l'igiene.</p>
+                            </li>
+                            <li>
+                                <h3>Lenti Specialistiche</h3>
+                                <p>Toriche per astigmatismo, multifocali per presbiopia, o lenti per occhi secchi con materiali specifici.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h3>💡 Consigli per un Utilizzo Ottimale</h3>
+                <ul>
+                    <li>Non superare mai le ore di utilizzo consigliate per la tua tipologia di lenti</li>
+                    <li>Rimuovi sempre le lenti prima di dormire, salvo prescrizione medica specifica</li>
+                    <li>Non fare bagni, docce o sport acquatici indossando le lenti</li>
+                    <li>Sostituisci le soluzioni per lenti secondo le scadenze indicate</li>
+                    <li>Tieni sempre una soluzione salina sterile per emergenze</li>
+                    <li>Non utilizzare saliva o acqua per inumidire le lenti</li>
+                    <li>Se avverti fastidio, rimuovi immediatamente la lente e consulta il nostro staff</li>
+                    <li>Effettua controlli periodici della vista anche se non hai problemi</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting">
+                <h2>🔧 Risoluzione Problemi Comuni</h2>
+                
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h4>Problema: Lente che si muove o esce</h4>
+                        <p>La lente scivola sull'occhio o fuoriesce facilmente durante l'ammiccamento.</p>
+                    </div>
+                    <div class="solution">
+                        <h4>Soluzione</h4>
+                        <p>Potrebbe essere della misura sbagliata. Consulta il nostro specialista per una verifica dei parametri e una possibile sostituzione.</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h4>Problema: Secchezza oculare</h4>
+                        <p>Gli occhi si sentono secchi, irritati o brucianti durante l'utilizzo.</p>
+                    </div>
+                    <div class="solution">
+                        <h4>Soluzione</h4>
+                        <p>Usa gocce umettanti specifiche per lenti a contatto. Considera lenti con materiali più idrofili o riduci le ore di utilizzo.</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h4>Problema: Visione offuscata</h4>
+                        <p>La visione rimane offuscata anche dopo aver inserito correttamente le lenti.</p>
+                    </div>
+                    <div class="solution">
+                        <h4>Soluzione</h4>
+                        <p>La lente potrebbe essere al contrario, sporca o danneggiata. Rimuovi, pulisci e reinserisci. Se persiste, sostituisci la lente.</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h4>Problema: Lente persa nell'occhio</h4>
+                        <p>Non riesci a trovare la lente dopo averla inserita o durante la rimozione.</p>
+                    </div>
+                    <div class="solution">
+                        <h4>Soluzione</h4>
+                        <p>Mantieni la calma. Guarda in tutte le direzioni e palpa delicatamente le palpebre. La lente non può andare "dietro" l'occhio. Se non la trovi, consulta il nostro staff.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="container">
+                    <h2>Hai bisogno di supporto per le lenti a contatto?</h2>
+                    <p>Il nostro staff specializzato è disponibile per controlli, training personalizzato e consigli su misura per le tue esigenze.</p>
+                    <a href="club-te.html" class="cta-button">Scopri Club &Te Lenti a Contatto</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gianfranco Vision Guide</h3>
+                    <p>La tua risorsa digitale per il benessere della vista. Guide, consigli e assistenza dedicata ai clienti del nostro negozio di ottica.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Servizi</h3>
+                    <ul>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html">Consigli Acquisti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Supporto</h3>
+                    <p>Per assistenza personalizzata, visita il nostro negozio o contattaci per prenotare un appuntamento.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gianfranco Vision Guide - Uno strumento di servizio per i nostri clienti</p>
+            </div>
+        </div>
+    </footer>
+</body>
+                      </html>
