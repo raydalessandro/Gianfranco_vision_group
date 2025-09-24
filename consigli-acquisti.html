@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consigli per gli Acquisti - Gianfranco Vision Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a472a;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            padding: 4rem 0;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .category-body {
+            padding: 2rem;
+        }
+
+        /* Product recommendations */
+        .recommendations {
+            margin-bottom: 4rem;
+        }
+
+        .recommendations h2 {
+            text-align: center;
+            color: #1a472a;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .recommendation-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .recommendation-header {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .recommendation-badge {
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .recommendation-title {
+            color: #1a472a;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .recommendation-body {
+            padding: 2rem;
+        }
+
+        .product-list {
+            list-style: none;
+        }
+
+        .product-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: #1a472a;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .rating-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        /* Price ranges */
+        .price-guide {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+
+        .price-guide h2 {
+            text-align: center;
+            color: #1a472a;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .price-ranges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-range-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .price-range-header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            margin: -2rem -2rem 2rem;
+            padding: 1.5rem;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-category {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Tips section */
+        .tips {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .tips h3 {
+            color: #1a472a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #1a472a;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #28a745;
+        }
+
+        .footer-section p, .footer-section li {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 1rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .categories,
+            .recommendation-grid,
+            .price-ranges {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">Gianfranco Vision Guide</div>
+                    <div class="tagline">La tua guida completa per il benessere della vista</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html" class="active">Consigli Acquisti</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Consigli per gli Acquisti</h1>
+            <p>Le nostre raccomandazioni esperte per trovare i prodotti perfetti per ogni esigenza e budget</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="container">
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">👓</div>
+                        <h2 class="category-title">Occhiali da Vista</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Scopri la selezione delle migliori montature per ogni forma del viso, stile di vita e budget. Dalle montature più eleganti a quelle più sportive e resistenti.</p>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🕶️</div>
+                        <h2 class="category-title">Occhiali da Sole</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Protezione UV di qualità con stile. Dai classici intramontabili alle ultime tendenze fashion, sempre con certificazione di protezione massima.</p>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">👁️</div>
+                        <h2 class="category-title">Lenti a Contatto</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Le migliori lenti per comfort, durata e salute oculare. Giornaliere, settimanali, mensili e specialistiche per ogni tipo di correzione.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="recommendations">
+                <h2>Le Nostre Raccomandazioni Top</h2>
+                <div class="recommendation-grid">
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <span class="recommendation-badge">BESTSELLER</span>
+                            <h3 class="recommendation-title">Per lo Smart Working</h3>
+                        </div>
+                        <div class="recommendation-body">
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Montature acetato + lenti filtro blu</div>
+                                        <div class="product-description">Riduce l'affaticamento visivo da schermo</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.8/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Ray-Ban RX5362</div>
+                                        <div class="product-description">Design moderno, comfort prolungato</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.7/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Lenti progressive Varilux</div>
+                                        <div class="product-description">Perfette per computer e lettura</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.9/5</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <span class="recommendation-badge">SPORT & ATTIVO</span>
+                            <h3 class="recommendation-title">Per lo Sport</h3>
+                        </div>
+                        <div class="recommendation-body">
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Oakley sportivi</div>
+                                        <div class="product-description">Resistenza e aderenza massima</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.8/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Montature in titanio</div>
+                                        <div class="product-description">Leggerezza e resistenza agli urti</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating-text">4.6/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Lenti fotocromatiche</div>
+                                        <div class="product-description">Si adattano automaticamente alla luce</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.7/5</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <span class="recommendation-badge">ELEGANZA</span>
+                            <h3 class="recommendation-title">Per l'Ufficio</h3>
+                        </div>
+                        <div class="recommendation-body">
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Linea Salmoiraghi & Viganò</div>
+                                        <div class="product-description">Stile italiano, qualità premium</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.8/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Montature classiche metallo</div>
+                                        <div class="product-description">Discrete e professionali</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating-text">4.5/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Lenti antiriflesso premium</div>
+                                        <div class="product-description">Massima chiarezza visiva</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.9/5</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <span class="recommendation-badge">BAMBINI</span>
+                            <h3 class="recommendation-title">Per i Più Piccoli</h3>
+                        </div>
+                        <div class="recommendation-body">
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Montature flessibili</div>
+                                        <div class="product-description">Resistenti ai giochi dei bambini</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.8/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Lenti Essilor Stellest</div>
+                                        <div class="product-description">Controllo progressione miopia</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.9/5</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div>
+                                        <div class="product-name">Materiali ipoallergenici</div>
+                                        <div class="product-description">Sicurezza e comfort per pelli sensibili</div>
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-text">4.8/5</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="price-guide">
+                <div class="container">
+                    <h2>Guida ai Prezzi</h2>
+                    <div class="price-ranges">
+                        <div class="price-range-card">
+                            <div class="price-range-header">
+                                <div class="price-amount">150€ - 250€</div>
+                                <div class="price-category">Fascia Base</div>
+                            </div>
+                            <ul class="price-features">
+                                <li>Montature di qualità con design moderno</li>
+                                <li>Lenti monofocali con trattamenti base</li>
+                                <li>Marchi affidabili e garanzia completa</li>
+                                <li>Perfetto per il primo paio di occhiali</li>
+                                <li>Controlli e regolazioni inclusi</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-range-card">
+                            <div class="price-range-header">
+                                <div class="price-amount">250€ - 400€</div>
+                                <div class="price-category">Fascia Media</div>
+                            </div>
+                            <ul class="price-features">
+                                <li>Marchi premium (Ray-Ban, Oakley)</li>
+                                <li>Lenti con trattamenti avanzati</li>
+                                <li>Materiali superiori e design ricercato</li>
+                                <li>Lenti progressive entry level</li>
+                                <li>Maggiore durabilità e comfort</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-range-card">
+                            <div class="price-range-header">
+                                <div class="price-amount">400€+</div>
+                                <div class="price-category">Fascia Alta</div>
+                            </div>
+                            <ul class="price-features">
+                                <li>Marchi di lusso e collezioni esclusive</li>
+                                <li>Lenti progressive premium (Varilux)</li>
+                                <li>Tecnologie avanzate (fotocromatiche, filtri)</li>
+                                <li>Materiali innovativi (titanio, acetato premium)</li>
+                                <li>Personalizzazione completa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="tips">
+                <h3>💡 Consigli Pratici per l'Acquisto</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <div class="tip-title">Budget e Priorità</div>
+                        <div class="tip-description">Investi di più nelle lenti che nella montatura se usi gli occhiali tutto il giorno. Le lenti di qualità fanno la vera differenza.</div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-title">Prova Sempre</div>
+                        <div class="tip-description">Non comprare mai occhiali senza provarli. Forma del viso, comfort e vestibilità sono fondamentali per la soddisfazione finale.</div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-title">Garanzie</div>
+                        <div class="tip-description">Verifica sempre la garanzia su montature e lenti. I prodotti di qualità hanno garanzie estese e servizi post-vendita completi.</div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-title">Controlli Regolari</div>
+                        <div class="tip-description">Fai controllare la vista almeno ogni 2 anni, anche se non hai problemi. La prevenzione è sempre la migliore strategia.</div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-title">Secondo Paio</div>
+                        <div class="tip-description">Considera un secondo paio per emergenze o attività specifiche. Gli occhiali da sole graduati sono un ottimo investimento.</div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-title">Manutenzione</div>
+                        <div class="tip-description">Investi in prodotti per la pulizia e custodie di qualità. Una buona manutenzione allunga significativamente la vita degli occhiali.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="container">
+                    <h2>Hai bisogno di consigli personalizzati?</h2>
+                    <p>Il nostro team di esperti è a tua disposizione per aiutarti a scegliere il prodotto perfetto per le tue esigenze specifiche e il tuo budget.</p>
+                    <a href="club-te.html" class="cta-button">Scopri Club &Te per Vantaggi Esclusivi</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gianfranco Vision Guide</h3>
+                    <p>La tua risorsa digitale per il benessere della vista. Guide, consigli e assistenza dedicata ai clienti del nostro negozio di ottica.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Servizi</h3>
+                    <ul>
+                        <li><a href="guide-occhiali.html">Guide Occhiali</a></li>
+                        <li><a href="guide-lenti-contatto.html">Lenti a Contatto</a></li>
+                        <li><a href="club-te.html">Club &Te</a></li>
+                        <li><a href="consigli-acquisti.html">Consigli Acquisti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Supporto</h3>
+                    <p>Per assistenza personalizzata, visita il nostro negozio o contattaci per prenotare un appuntamento.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gianfranco Vision Guide - Uno strumento di servizio per i nostri clienti</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
